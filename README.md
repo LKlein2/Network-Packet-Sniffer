@@ -1,5 +1,5 @@
 # Network-Packet-Sniffer
-Network Packet Sniffer retrieves and unpacks the current network session packages.
+Network Packet Sniffer retrieves and unpacks the current network session packets.
 Ethernet Frame, IPv4 Packet, ICMP Segment, UDP segment and TCP Segment are retrieved and unpacked.
 ## Usage 
 ```Linux
