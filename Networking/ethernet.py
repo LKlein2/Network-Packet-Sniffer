@@ -9,10 +9,11 @@ class EthernetFrame:
         self.srcMac = get_mac_address(src)
         self.protocal = socket.htons(protocal)
         self.data = data[14:]
+        self.protocalInt = int(protocal)
 
 
     def __str__(self):
         print('\nEthernet Frame:')
-        return (Tab[0] + 'Destination: {}, Source: {}, Protocol: {}'.format(self.destinationMac, self.srcMac, self.protocal))
+        return (Tab[0] + 'Destination: {}, Source: {}, Protocol: {}, Protocol INT: {}'.format(self.destinationMac, self.srcMac, self.protocal, self.protocalInt))
 
 

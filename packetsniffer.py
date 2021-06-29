@@ -1,11 +1,12 @@
 import socket
 from utilities import *
-from networking.ethernet import EthernetFrame
-from networking.icmp import ICMP
-from networking.ipv4 import IPv4
-from networking.tcp import TCP
-from networking.udp import UDP
-from networking.http import HTTP
+from ethernet import EthernetFrame
+from icmp import ICMP
+from ipv4 import IPv4
+from tcp import TCP
+from udp import UDP
+from http import HTTP
+from ipv6 import IPv6
 
 '''
 Network Packet Sniffer
@@ -28,7 +29,7 @@ def packet_sniffer():
             #ICMP
             if ipv4.protocal == 1:
                 icmp = ICMP(ipv4.data)
-                print(icmp)
+                #print(icmp)
 
             #TCP
             elif ipv4.protocal == 6:
@@ -61,10 +62,13 @@ def packet_sniffer():
             else:
                 print(Tab[0] + 'Other IPv4 Data:')
                 print(format_multi_line(DataTab[0],ipv4.data))
-
+        #IPV6
+        elif ethernet_frame.protocal == 56710:
+        	ipv6 = IPv6(ethernet_frame.data, addr)
+        	print(str(ipv6))
         else:
             print('Ethernet Data:')
-            print(format_multi_line(DataTab[0], ethernet_frame.data))
+            #print(format_multi_line(DataTab[0], ethernet_frame.data))
 
 if __name__ == '__main__':
     packet_sniffer()
